@@ -5,7 +5,6 @@ import {ChevronLeftIcon} from '@chakra-ui/icons'
 
 export default function PageNotFound() {
     return (
-        <>
         <Box position='relative' h='100vh'>
             <AbsoluteCenter axis='both'>
                     <Text fontSize='2xl' my={4} fontWeight='900'>Page Not Found!</Text>
@@ -17,6 +16,5 @@ export default function PageNotFound() {
                     </Link>
             </AbsoluteCenter>
         </Box>
-        </>
     )
 }
