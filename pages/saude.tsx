@@ -1,9 +1,9 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 export default function Saude() {
 	return (
 		<Box>
-			<Text my={5}>Página Saúde</Text>
+			<Heading my={5}>Página Saúde</Heading>
 		</Box>
 	);
 }

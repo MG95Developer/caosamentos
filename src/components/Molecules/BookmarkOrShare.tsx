@@ -1,5 +1,6 @@
 import { Box, VStack, Text } from '@chakra-ui/react';
 import { FaRegBookmark, FaShareAlt } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function BookmarkOrShare(props: {
 	bookmark: string;
@@ -18,21 +19,25 @@ export default function BookmarkOrShare(props: {
 	return (
 		<VStack py={10}>
 			<Box py={5}>
-				<VStack>
-					<Box sx={containerStyles}>
-						<FaRegBookmark size={30} />
-					</Box>
-					<Text sx={textStyles}>{props.bookmark.toUpperCase()}</Text>
-				</VStack>
+				<Link href="/404">
+					<VStack>
+						<Box sx={containerStyles}>
+							<FaRegBookmark size={30} />
+						</Box>
+						<Text sx={textStyles}>{props.bookmark.toUpperCase()}</Text>
+					</VStack>
+				</Link>
 			</Box>
 
 			<Box py={5}>
-				<VStack>
-					<Box sx={containerStyles}>
-						<FaShareAlt size={30} />
-					</Box>
-					<Text sx={textStyles}>{props.share.toUpperCase()}</Text>
-				</VStack>
+				<Link href="/404">
+					<VStack>
+						<Box sx={containerStyles}>
+							<FaShareAlt size={30} />
+						</Box>
+						<Text sx={textStyles}>{props.share.toUpperCase()}</Text>
+					</VStack>
+				</Link>
 			</Box>
 		</VStack>
 	);
