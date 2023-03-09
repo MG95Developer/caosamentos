@@ -1,7 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from '@chakra-ui/react';
 
 export default function Blog() {
-    return (
-        <Box>Blog</Box>
-    )
+	return (
+		<Box>
+			<Text my={5}>Blog</Text>
+		</Box>
+	);
 }

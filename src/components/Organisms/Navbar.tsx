@@ -1,198 +1,148 @@
 import {
-    Box,
-    Flex,
-    Text,
-    IconButton,
-    Stack,
-    Collapse,
-    Link,
-    Popover,
-    PopoverTrigger,
-    useColorModeValue,
-    useDisclosure,
-  } from '@chakra-ui/react';
-  import {
-    HamburgerIcon,
-    CloseIcon
-} from '@chakra-ui/icons';
-  
-
+	Box,
+	Button,
+	Container,
+	Drawer,
+	DrawerBody,
+	DrawerCloseButton,
+	DrawerContent,
+	DrawerHeader,
+	DrawerOverlay,
+	Flex,
+	HStack,
+	IconButton,
+	Tab,
+	TabIndicator,
+	TabList,
+	Tabs,
+	Text,
+	useBreakpointValue,
+	useDisclosure,
+	VStack,
+} from '@chakra-ui/react';
+import Link from 'next/link';
+import { useRef } from 'react';
+import { FiMenu } from 'react-icons/fi';
 import Logotype from '../Atoms/Logotype';
-  
-  
-export default function Navbar() {
-      
-    const { isOpen, onToggle } = useDisclosure();
 
-      const linkStyles = {
-        textDecoration: 'none !important'
-      }
-  
-    return (
-      <Box>
-        <Flex
-            bg='gray.300'
-            color={useColorModeValue('gray.600', 'white')}
-            py={{ base: 2 }}
-                px={{ base: 4 }}
-                minHeight={{base: '80px', md:'100px'}}
-            align={'center'}
-        >
-                
-        <Flex
-            flex={{ base: 0 }}
-            ml={{ base: -2 }}
-            display={{ base: 'flex', lg: 'none' }}
-        >
-            <IconButton
-                onClick={onToggle}
-                icon={
-                    isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-                }
-                variant={'ghost'}
-                aria-label={'Toggle Navigation'}
-            />
-        </Flex>
-                
-            <Flex flex={{ base: 1}} justify={{ base: 'center', md: 'start' }}>
-                <Box flex={{ base: 2}} display={{ base: 'none', lg: 'flex' }}>
-                    <DesktopNav />
-                </Box>
-                    
-                <Box flex={{ base: 1}} display={{ base: 'flex' }} justifyContent='flex-end' mr={{base: 5, md: 14}}>
-                   
-                    <Link href='/404' sx={linkStyles}>
-                        <Box mr={{base: 6, md: 12}}>ÁREA PESSOAL</Box>
-                        <Box mt='-10' display='flex' justifyContent='center' alignItems='center' ml={16}>
-                            <Text display='flex' justifyContent='center' alignItems='center' bg='red'color='white' w='20px' h='20px' borderRadius='50%' fontWeight='600'>5</Text>
-                        </Box>
-                    </Link>
-                       
-                    <Link href='/404' sx={linkStyles}>
-                        <Box>ENGLISH</Box>
-                    </Link>
-                </Box>
-            </Flex>
-                
-            <Stack
-                justify={'flex-end'}
-                direction={'row'}
-            >
-              <Logotype/>
-            </Stack>
-                
-        </Flex>
-  
-        <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
-        </Collapse>
-            
-      </Box>
-    );
-  }
-  
-  const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
-  
-    return (
-      <Stack direction={'row'} spacing={4}>
-        {NAV_ITEMS.map((navItem) => (
-          <Box key={navItem.label}>
-            <Popover trigger={'hover'} placement={'bottom-start'} >
-              <PopoverTrigger>
-                <Link
-                  p={2}
-                  href={navItem.href ?? '#'}
-                  fontSize={'sm'}
-                  fontWeight={500}
-                  color={linkColor}
-                  _hover={{
-                    textDecoration: 'none',
-                    color: linkHoverColor,
-                  }}>
-                  {navItem.label}
-                </Link>
-              </PopoverTrigger>
-            </Popover>
-          </Box>
-        ))}
-      </Stack>
-    );
-  };
+export const Navbar = () => {
+	const isDesktop = useBreakpointValue({
+		base: false,
+		md: false,
+		sm: true,
+		lg: true,
+	});
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const menuButtonRef = useRef<HTMLButtonElement>(null);
+	return (
+		<Box as="nav" zIndex="10" role="navigation" bg="gray.300">
+			<Container maxWidth="lx" py={{ base: '4', lg: '5' }}>
+				<HStack spacing="10" justify="space-between">
+					{isDesktop ? (
+						<Flex justify="space-between" flex="1">
+							<Tabs isFitted variant="unstyled">
+								<TabList zIndex="modal">
+									<Link href="/" style={{ zIndex: '10' }}>
+										<Tab color="black" fontSize="lg">
+											Home
+										</Tab>
+									</Link>
 
-  const MobileNav = () => {
-    return (
-      <Stack
-        bg='gray.300'
-        p={4}
-        display={{ lg: 'none' }}
+									<Link href="/patudos" style={{ zIndex: '10' }}>
+										<Tab color="black" fontSize="lg">
+											Patudos
+										</Tab>
+									</Link>
+									<Link href="/racas" style={{ zIndex: '10' }}>
+										<Tab color="black" fontSize="lg">
+											Raças
+										</Tab>
+									</Link>
+									<Link href="/saude" style={{ zIndex: '10' }}>
+										<Tab color="black" fontSize="lg">
+											Saúde
+										</Tab>
+									</Link>
+								</TabList>
+								<TabIndicator mt="-22px" height={4} bg="hover" zIndex="base" />
+							</Tabs>
+							<HStack spacing="3">
+								<Logotype />
+							</HStack>
+						</Flex>
+					) : (
+						<Box width="100%">
+							<Flex justify="space-between" flex="1">
+								<Box>
+									<IconButton
+										onClick={onOpen}
+										variant="ghost"
+										icon={<FiMenu fontSize="1.25rem" />}
+										aria-label="Open Menu"
+									/>
+								</Box>
 
-        >
-        {NAV_ITEMS.map((navItem) => (
-          <MobileNavItem  key={navItem.label} {...navItem} />
-        ))}
-      </Stack>
-    );
-  };
-  
-  const MobileNavItem = ({ label,  href }: NavItem) => {
-    const { isOpen, onToggle } = useDisclosure();
-  
-    return (
-      <Stack spacing={4} onClick={onToggle}>
-        <Flex
-          py={2}
-          as={Link}
-          href={href ?? '#'}
-          justify={'space-between'}
-          align={'center'}
-          _hover={{
-            textDecoration: 'none',
-          }}>
-          <Text
-            fontWeight={600}
-            color='#4a5568'
-            >
-            {label}
-          </Text>
-      
-        </Flex>
-  
+								<Logotype />
+							</Flex>
 
-      </Stack>
-    );
-  };
-  
-  interface NavItem {
-    label: string;
-    subLabel?: string;
-    href?: string;
-  }
-  
-  const NAV_ITEMS: Array<NavItem> = [
-    {
-      label: 'Home',
-      href: '/',
-    },
-    {
-      label: 'Patudos',
-      href: '/patudos',
-    },
-    {
-      label: 'Raças',
-      href: '/racas',
-    },
-    {
-      label: 'Saúde',
-      href: '/saude',
-    },
-    {
-      label: 'Serviços',
-      href: '/servicos',
-    },
-    {
-      label: 'Blog',
-      href: '/blog',
-    },
-  ];
+							<Drawer
+								placement="left"
+								initialFocusRef={menuButtonRef}
+								isOpen={isOpen}
+								onClose={onClose}
+								size="lg"
+							>
+								<DrawerOverlay />
+								<DrawerContent backgroundColor="burguerMenuBackground">
+									<DrawerHeader padding="0" minHeight="40px" alignItems="left">
+										<DrawerCloseButton
+											onClick={onClose}
+											aria-label={'Close Menu'}
+										/>
+									</DrawerHeader>
+									<DrawerBody>
+										<VStack mt="6" alignItems="left">
+											<VStack
+												spacing="6"
+												alignItems="left"
+												fontFamily="GothamBold"
+												fontSize="2xl"
+												color="black"
+											>
+												<Link href="/" onClick={onClose}>
+													<Text fontWeight="medium">Home</Text>
+												</Link>
+												<Link href="/patudos" onClick={onClose}>
+													<Text fontWeight="medium">Patudos</Text>
+												</Link>
+												<Link href="/racas" onClick={onClose}>
+													<Text fontWeight="medium">Raças</Text>
+												</Link>
+												<Link href="/saude" onClick={onClose}>
+													<Text fontWeight="medium">Saúde</Text>
+												</Link>
+											</VStack>
+
+											<HStack mt="12" position="absolute" bottom="10%">
+												<Link passHref href={'/'}>
+													<Button variant="red" as="span">
+														ÁREA PESSOAL
+													</Button>
+												</Link>
+												<Link passHref href={'/'}>
+													<Button variant="red" as="span">
+														ENGLISH
+													</Button>
+												</Link>
+											</HStack>
+										</VStack>
+									</DrawerBody>
+								</DrawerContent>
+							</Drawer>
+						</Box>
+					)}
+				</HStack>
+			</Container>
+		</Box>
+	);
+};

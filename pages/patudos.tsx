@@ -1,7 +1,9 @@
-import {Box} from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react';
 
 export default function Patudos() {
-  return (
-    <Box>Página Patudos</Box>
-  )
+	return (
+		<Box>
+			<Text my={5}>Página Patudos</Text>
+		</Box>
+	);
 }
