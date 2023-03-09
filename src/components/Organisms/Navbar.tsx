@@ -16,7 +16,8 @@ import {
     CloseIcon
 } from '@chakra-ui/icons';
   
-import Image from 'next/image';
+
+import Logotype from '../Atoms/Logotype';
   
   
 export default function Navbar() {
@@ -77,20 +78,7 @@ export default function Navbar() {
                 justify={'flex-end'}
                 direction={'row'}
             >
-                <Link href='/'>
-                    <Box
-                        width={{ base: '60px', md: '80px', lg: '100px' }}
-                        display='flex'
-                        justifyContent='center'
-                        alignItems='center'
-                    >
-                        <Image
-                            width={90}
-                            height={90}
-                            src='/images/logotype.webp' alt='caosamentos logotype'
-                        />
-                    </Box>
-                </Link>
+              <Logotype/>
             </Stack>
                 
         </Flex>
