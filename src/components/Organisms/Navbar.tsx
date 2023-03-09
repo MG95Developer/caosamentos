@@ -58,7 +58,7 @@ export default function Navbar() {
                     <DesktopNav />
                 </Box>
                     
-                <Box flex={{ base: 1}} display={{ base: 'flex' }} justifyContent='flex-end' mr={{base: 5, md: 14}} pr={0}>
+                <Box flex={{ base: 1}} display={{ base: 'flex' }} justifyContent='flex-end' mr={{base: 5, md: 14}}>
                    
                     <Link href='/404' sx={linkStyles}>
                         <Box mr={{base: 6, md: 12}}>ÁREA PESSOAL</Box>
@@ -77,12 +77,20 @@ export default function Navbar() {
                 justify={'flex-end'}
                 direction={'row'}
                 >
-                <Link href='/'>
-                    <Image
-                        width={50}
-                        height={50}
+                    <Link href='/'>
+                        <Box
+                            width={{ base: '60px', md: '80px', lg: '100px' }}
+                            display='flex'
+                            justifyContent='center'
+                            alignItems='center'
+                        >
+                        <Image
+                        width={90}
+                        height={90}
                         src='/images/logotype.webp' alt='caosamentos logotype'
                     />
+                        </Box>
+                   
                 </Link>
             </Stack>
                 
