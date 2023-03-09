@@ -38,7 +38,7 @@ export default function Navbar() {
             align={'center'}
         >
                 
-                <Flex
+        <Flex
             flex={{ base: 0 }}
             ml={{ base: -2 }}
             display={{ base: 'flex', lg: 'none' }}
@@ -76,21 +76,20 @@ export default function Navbar() {
             <Stack
                 justify={'flex-end'}
                 direction={'row'}
-                >
-                    <Link href='/'>
-                        <Box
-                            width={{ base: '60px', md: '80px', lg: '100px' }}
-                            display='flex'
-                            justifyContent='center'
-                            alignItems='center'
-                        >
+            >
+                <Link href='/'>
+                    <Box
+                        width={{ base: '60px', md: '80px', lg: '100px' }}
+                        display='flex'
+                        justifyContent='center'
+                        alignItems='center'
+                    >
                         <Image
-                        width={90}
-                        height={90}
-                        src='/images/logotype.webp' alt='caosamentos logotype'
-                    />
-                        </Box>
-                   
+                            width={90}
+                            height={90}
+                            src='/images/logotype.webp' alt='caosamentos logotype'
+                        />
+                    </Box>
                 </Link>
             </Stack>
                 
