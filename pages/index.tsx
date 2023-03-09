@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
-import { Text } from '@chakra-ui/react'
+import { Text} from '@chakra-ui/react'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function Home() {
 
       <main>
         <Text>Homepage</Text>
+
       </main>
     </>
   )

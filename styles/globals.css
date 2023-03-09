@@ -86,6 +86,7 @@ body {
 }
 
 body {
+  overflow-y: scroll;  /* allow vertical scrolling */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -94,6 +95,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+body::-webkit-scrollbar{
+  display: none; /* remove browser scroll bar */
+}
+
 
 a {
   color: inherit;
