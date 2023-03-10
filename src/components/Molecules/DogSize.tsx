@@ -25,34 +25,34 @@ export default function DogSize({ sizeXS, sizeM, sizeL, sizeXL }: IDogSize) {
 	};
 
 	return (
-		<Box paddingLeft="20px">
+		<Box>
 			<Heading as="h4" sx={dogSizeStyles}>
 				Porte
 			</Heading>
 
 			<HStack>
-				<VStack pr={6}>
+				<VStack pr={6} opacity="1">
 					<Box sx={dogIconStyles}>
 						<FaDog fontSize="20px" />
 					</Box>
 					<Box>{sizeXS}</Box>
 				</VStack>
 
-				<VStack pr={6}>
+				<VStack pr={6} opacity="1">
 					<Box sx={dogIconStyles}>
 						<FaDog fontSize="30px" />
 					</Box>
 					<Box>{sizeM}</Box>
 				</VStack>
 
-				<VStack pr={6}>
+				<VStack pr={6} opacity=".25">
 					<Box sx={dogIconStyles}>
 						<FaDog fontSize="40px" />
 					</Box>
 					<Box>{sizeL}</Box>
 				</VStack>
 
-				<VStack pr={0}>
+				<VStack pr={0} opacity=".25">
 					<Box sx={dogIconStyles}>
 						<FaDog fontSize="45px" />
 					</Box>

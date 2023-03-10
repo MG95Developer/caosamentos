@@ -2,17 +2,56 @@ import { Box, Heading } from '@chakra-ui/react';
 import BackToResults from '@/src/components/Molecules/BackToResults';
 import DogSize from '@/src/components/Molecules/DogSize';
 import BookmarkOrShare from '@/src/components/BookmarkOrShare';
+import DogMetrics from '@/src/components/Molecules/DogMetrics';
 
 export default function Racas() {
 	return (
 		<Box>
-			<Heading my={5}>Página Raças</Heading>
+			{/* page title */}
+			<Box my={30}>
+				<Heading>Página Raças</Heading>
+			</Box>
 
-			<BackToResults title="Voltar aos resultados de pesquisa" URL="/404" />
+			{/* component */}
+			<Box my={30}>
+				<BackToResults title="Voltar aos resultados de pesquisa" URL="/404" />
+			</Box>
 
-			<BookmarkOrShare bookmark="guardar nos favoritos" share="partilhar" />
+			{/* component */}
+			<Box my={30}>
+				<BookmarkOrShare bookmark="guardar nos favoritos" share="partilhar" />
+			</Box>
 
-			<DogSize sizeXS="Mini" sizeM="Médio" sizeL="Grande" sizeXL="Gigante" />
+			{/* component */}
+			<Box my={30}>
+				<DogSize sizeXS="Mini" sizeM="Médio" sizeL="Grande" sizeXL="Gigante" />
+			</Box>
+
+			{/* component */}
+			<Box my={30}>
+				<DogMetrics metricsTitle="energia" percentage={25} />
+			</Box>
+			<Box my={30}>
+				<DogMetrics metricsTitle="social" percentage={50} />
+			</Box>
+			<Box my={30}>
+				<DogMetrics metricsTitle="inteligência" percentage={60} />
+			</Box>
+			<Box my={30}>
+				<DogMetrics metricsTitle="ambiente interior" percentage={30} />
+			</Box>
+			<Box my={30}>
+				<DogMetrics metricsTitle="ambiente exterior" percentage={70} />
+			</Box>
+			<Box my={30}>
+				<DogMetrics metricsTitle="exercício" percentage={75} />
+			</Box>
+			<Box my={30}>
+				<DogMetrics metricsTitle="gromming" percentage={65} />
+			</Box>
+			<Box my={30}>
+				<DogMetrics metricsTitle="esperança média de vida" percentage={85} />
+			</Box>
 		</Box>
 	);
 }
