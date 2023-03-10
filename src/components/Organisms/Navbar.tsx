@@ -28,19 +28,25 @@ import Logotype from '../Atoms/Logotype';
 export const Navbar = () => {
 	const isDesktop = useBreakpointValue({
 		base: false,
+		sm: false,
 		md: false,
-		sm: true,
 		lg: true,
 	});
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const menuButtonRef = useRef<HTMLButtonElement>(null);
 	return (
 		<Box as="nav" zIndex="10" role="navigation" bg="gray.300">
-			<Container maxWidth="lx" py={{ base: '4', lg: '5' }}>
+			<Container maxWidth="lx" py={{ base: '2', lg: '4' }}>
 				<HStack spacing="10" justify="space-between">
 					{isDesktop ? (
 						<Flex justify="space-between" flex="1">
-							<Tabs isFitted variant="unstyled">
+							<Tabs
+								isFitted
+								variant="unstyled"
+								display="flex"
+								justifyContent="center"
+								alignItems="center"
+							>
 								<TabList zIndex="modal">
 									<Link href="/" style={{ zIndex: '10' }}>
 										<Tab color="black" fontSize="lg">
@@ -63,6 +69,16 @@ export const Navbar = () => {
 											Saúde
 										</Tab>
 									</Link>
+									<Link href="/servicos" style={{ zIndex: '10' }}>
+										<Tab color="black" fontSize="lg">
+											Serviços
+										</Tab>
+									</Link>
+									<Link href="/blog" style={{ zIndex: '10' }}>
+										<Tab color="black" fontSize="lg">
+											Blog
+										</Tab>
+									</Link>
 								</TabList>
 								<TabIndicator mt="-22px" height={4} bg="hover" zIndex="base" />
 							</Tabs>
@@ -71,9 +87,9 @@ export const Navbar = () => {
 							</HStack>
 						</Flex>
 					) : (
-						<Box width="100%">
+						<Box width="full">
 							<Flex justify="space-between" flex="1">
-								<Box>
+								<Box display="flex" justifyContent="center" alignItems="center">
 									<IconButton
 										onClick={onOpen}
 										variant="ghost"
@@ -120,6 +136,12 @@ export const Navbar = () => {
 												</Link>
 												<Link href="/saude" onClick={onClose}>
 													<Text fontWeight="medium">Saúde</Text>
+												</Link>
+												<Link href="/servicos" onClick={onClose}>
+													<Text fontWeight="medium">Serviços</Text>
+												</Link>
+												<Link href="/blog" onClick={onClose}>
+													<Text fontWeight="medium">Blog</Text>
 												</Link>
 											</VStack>
 

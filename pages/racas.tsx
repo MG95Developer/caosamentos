@@ -1,6 +1,5 @@
 import { Box, Heading } from '@chakra-ui/react';
 
-// custom components
 import BackToResults from '@/src/components/Molecules/BackToResults';
 import BookmarkOrShare from '@/src/components/Molecules/BookmarkOrShare';
 

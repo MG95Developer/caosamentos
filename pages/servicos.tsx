@@ -1,7 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from '@chakra-ui/react';
 
 export default function Serviços() {
-    return (
-        <Box>Página Serviços</Box>
-    )
+	return (
+		<Box>
+			<Heading my={5}>Página Serviços</Heading>
+		</Box>
+	);
 }
