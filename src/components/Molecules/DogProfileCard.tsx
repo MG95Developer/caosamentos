@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
 	Box,
@@ -7,34 +9,36 @@ import {
 	CardFooter,
 	Button,
 	Text,
+	Avatar,
+	Flex,
 } from '@chakra-ui/react';
 
 import { Image } from '@chakra-ui/react';
 
+import { FaMale, FaFemale } from 'react-icons/fa';
+
 interface IDogProfileCard {
 	dogIMG: string;
-	nameTitle: string;
-	breedTitle: string;
-	locationTitle: string;
 	dogName: string;
 	dogBreed: string;
+	dogGender: string;
 	dogLocation: string;
 	buttonText: string;
+	buttonURL: string;
 }
 
 export default function DogProfileCard({
 	dogIMG,
-	nameTitle,
-	breedTitle,
-	locationTitle,
 	dogName,
 	dogBreed,
+	dogGender,
 	dogLocation,
 	buttonText,
+	buttonURL,
 }: IDogProfileCard) {
 	const cardStyles = {
 		width: '300px',
-		height: '450px',
+		height: '500px',
 		borderRadius: '25px',
 		margin: '1em',
 	};
@@ -57,53 +61,81 @@ export default function DogProfileCard({
 	};
 
 	return (
-		<Box>
-			<Card sx={cardStyles}>
-				<CardHeader mt="-110px" mx="auto">
-					<Image
-						borderRadius="full"
-						src={dogIMG}
-						objectFit="cover"
-						alt="Picture of the author"
-						width={180}
-						height={180}
-					/>
-				</CardHeader>
+		<Card sx={cardStyles}>
+			<CardHeader mt="-110px" mx="auto" position="relative">
+				<Image
+					borderRadius="full"
+					src={dogIMG}
+					objectFit="cover"
+					alt="Picture of the author"
+					width={220}
+					height={220}
+				/>
+				<Box position="absolute" top="30px" left="170px">
+					<Flex>
+						<Avatar w="75px" h="75px" src="/images/card-image.jpeg" />
+					</Flex>
+				</Box>
+				<Box
+					position="absolute"
+					top="210px"
+					left="105px"
+					w="50px"
+					h="50px"
+					display="flex"
+					justifyContent="center"
+					alignItems="center"
+				>
+					{dogGender == 'male' ? (
+						<Text as="span" bg="blue.300" padding=".5em" borderRadius="50%">
+							<FaMale color="white" size={35} />
+						</Text>
+					) : (
+						<Text as="span" bg="pink.300" padding=".5em" borderRadius="50%">
+							<FaFemale color="white" size={35} />
+						</Text>
+					)}
+				</Box>
+			</CardHeader>
 
-				<CardBody py={0} mb={5}>
-					<Box>
-						<Text color="gray.300" as="h6" textTransform="uppercase">
-							{nameTitle}
-						</Text>
-						<Text as="p" textTransform="capitalize">
-							{dogName}
-						</Text>
-					</Box>
-					<Box pt={8}>
-						<Text color="gray.300" as="h6" textTransform="uppercase">
-							{breedTitle}
-						</Text>
-						<Text as="p" textTransform="capitalize">
-							{dogBreed}{' '}
-						</Text>
-					</Box>
-					<Box pt={8}>
-						<Text color="gray.300" as="h6" textTransform="uppercase">
-							{locationTitle}
-						</Text>
-						<Text as="p" textTransform="capitalize">
-							{dogLocation}
-						</Text>
-					</Box>
-				</CardBody>
+			<CardBody py={0} mb={5}>
+				<Box>
+					<Text display="none" as="span" textTransform="capitalize">
+						{dogGender}
+					</Text>
+					<Text color="gray.300" as="h6" textTransform="uppercase">
+						nome
+					</Text>
+					<Text as="p" textTransform="capitalize">
+						{dogName}
+					</Text>
+				</Box>
+				<Box pt={8}>
+					<Text color="gray.300" as="h6" textTransform="uppercase">
+						raça
+					</Text>
+					<Text as="p" textTransform="capitalize">
+						{dogBreed}{' '}
+					</Text>
+				</Box>
+				<Box pt={8}>
+					<Text color="gray.300" as="h6" textTransform="uppercase">
+						localização
+					</Text>
+					<Text as="p" textTransform="capitalize">
+						{dogLocation}
+					</Text>
+				</Box>
+			</CardBody>
 
-				<CardFooter sx={cardFooter}>
-					<Button sx={buttonStyles}>
+			<CardFooter sx={cardFooter}>
+				<Link href={buttonURL}>
+					<Button as="label" sx={buttonStyles}>
 						{buttonText}
 						<ArrowForwardIcon ml={6} fontSize={30} />
 					</Button>
-				</CardFooter>
-			</Card>
-		</Box>
+				</Link>
+			</CardFooter>
+		</Card>
 	);
 }

@@ -54,7 +54,7 @@ export default function DogSize({ sizeXS, sizeM, sizeL, sizeXL }: IDogSize) {
 
 				<VStack pr={0} opacity=".25">
 					<Box sx={dogIconStyles}>
-						<FaDog fontSize="45px" />
+						<FaDog fontSize="55px" />
 					</Box>
 					<Box>{sizeXL}</Box>
 				</VStack>
