@@ -70,8 +70,8 @@ export default function DogProfileCard({
 					/>
 				</CardHeader>
 
-				<CardBody py={0} my={0}>
-					<Box pt={8}>
+				<CardBody py={0} mb={5}>
+					<Box>
 						<Text color="gray.300" as="h6" textTransform="uppercase">
 							{nameTitle}
 						</Text>
