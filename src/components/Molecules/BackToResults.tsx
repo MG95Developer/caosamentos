@@ -9,7 +9,9 @@ export default function BackToResults(props: { title: string; URL: string }) {
 				<HStack color="blue.400">
 					<ArrowBackIcon fontSize={40} mr={3} />
 					<Box>
-						<Text w="200px">{props.title.toUpperCase()}</Text>
+						<Text w="200px" textTransform="uppercase">
+							{props.title}
+						</Text>
 					</Box>
 				</HStack>
 			</Link>

@@ -18,8 +18,13 @@ export default function DogMetrics({ metricsTitle, percentage }: IDogMetrics) {
 				<Text>{metricsTitle}</Text>
 			</Box>
 
-			<Box as="div">
-				<Progress borderRadius="full" height="32px" value={percentage} />
+			<Box>
+				<Progress
+					borderRadius="full"
+					colorScheme="blue"
+					height="32px"
+					value={percentage}
+				/>
 			</Box>
 		</Box>
 	);
