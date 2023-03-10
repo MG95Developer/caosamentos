@@ -1,8 +1,9 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, HStack } from '@chakra-ui/react';
 import BackToResults from '@/src/components/Molecules/BackToResults';
 import DogSize from '@/src/components/Molecules/DogSize';
 import BookmarkOrShare from '@/src/components/BookmarkOrShare';
 import DogMetrics from '@/src/components/Molecules/DogMetrics';
+import DogProfileCard from '@/src/components/Molecules/DogProfileCard';
 
 export default function Racas() {
 	return (
@@ -51,6 +52,32 @@ export default function Racas() {
 			</Box>
 			<Box my={30}>
 				<DogMetrics metricsTitle="esperança média de vida" percentage={85} />
+			</Box>
+
+			{/* component */}
+			<Box my={60}>
+				<HStack>
+					<DogProfileCard
+						dogIMG="/images/dog-1.jpeg"
+						nameTitle="nome"
+						breedTitle="raça"
+						locationTitle="localização"
+						buttonText="ver o perfil"
+						dogName="blake"
+						dogBreed="bull terrier"
+						dogLocation="almancil"
+					/>
+					<DogProfileCard
+						dogIMG="/images/dog-2.jpeg"
+						nameTitle="nome"
+						breedTitle="raça"
+						locationTitle="localização"
+						buttonText="ver o perfil"
+						dogName="Filipe"
+						dogBreed="Pastor Alemão"
+						dogLocation="almancil"
+					/>
+				</HStack>
 			</Box>
 		</Box>
 	);
