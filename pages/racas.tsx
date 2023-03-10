@@ -1,8 +1,7 @@
 import { Box, Heading } from '@chakra-ui/react';
-
 import BackToResults from '@/src/components/Molecules/BackToResults';
-import BookmarkOrShare from '@/src/components/Molecules/BookmarkOrShare';
 import DogSize from '@/src/components/Molecules/DogSize';
+import BookmarkOrShare from '@/src/components/BookmarkOrShare';
 
 export default function Racas() {
 	return (
@@ -13,7 +12,7 @@ export default function Racas() {
 
 			<BookmarkOrShare bookmark="guardar nos favoritos" share="partilhar" />
 
-			<DogSize />
+			<DogSize sizeXS="Mini" sizeM="Médio" sizeL="Grande" sizeXL="Gigante" />
 		</Box>
 	);
 }

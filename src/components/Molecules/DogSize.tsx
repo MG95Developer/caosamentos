@@ -1,8 +1,14 @@
 import { Box, Heading, HStack, VStack, Text, Spacer } from '@chakra-ui/react';
 import { FaDog } from 'react-icons/fa';
-import Logotype from '../Atoms/Logotype';
 
-export default function DogSize() {
+interface IDogSize {
+	sizeXS: string;
+	sizeM: string;
+	sizeL: string;
+	sizeXL: string;
+}
+
+export default function DogSize({ sizeXS, sizeM, sizeL, sizeXL }: IDogSize) {
 	const dogSizeStyles = {
 		fontSize: '1em',
 		textTransform: 'uppercase',
@@ -15,6 +21,7 @@ export default function DogSize() {
 		justifyContent: 'center',
 		alignItems: 'flex-end',
 		height: '20px',
+		color: 'blue.400',
 	};
 
 	return (
@@ -24,32 +31,32 @@ export default function DogSize() {
 			</Heading>
 
 			<HStack>
-				<VStack pr={2}>
+				<VStack pr={6}>
 					<Box sx={dogIconStyles}>
 						<FaDog fontSize="20px" />
 					</Box>
-					<Box>Mini</Box>
+					<Box>{sizeXS}</Box>
 				</VStack>
 
-				<VStack pr={2}>
+				<VStack pr={6}>
 					<Box sx={dogIconStyles}>
-						<FaDog fontSize="25px" />
+						<FaDog fontSize="30px" />
 					</Box>
-					<Box>Médio</Box>
+					<Box>{sizeM}</Box>
 				</VStack>
 
-				<VStack pr={2}>
+				<VStack pr={6}>
 					<Box sx={dogIconStyles}>
-						<FaDog fontSize="35px" />
+						<FaDog fontSize="40px" />
 					</Box>
-					<Box>Grande</Box>
+					<Box>{sizeL}</Box>
 				</VStack>
 
 				<VStack pr={0}>
 					<Box sx={dogIconStyles}>
-						<FaDog fontSize="40px" />
+						<FaDog fontSize="45px" />
 					</Box>
-					<Box>Gigante</Box>
+					<Box>{sizeXL}</Box>
 				</VStack>
 			</HStack>
 		</Box>

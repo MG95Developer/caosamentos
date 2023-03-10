@@ -1,4 +1,4 @@
-import { Box, VStack, Text, Button } from '@chakra-ui/react';
+import { Box, VStack, Text } from '@chakra-ui/react';
 import { FaRegBookmark, FaShareAlt } from 'react-icons/fa';
 import Link from 'next/link';
 
