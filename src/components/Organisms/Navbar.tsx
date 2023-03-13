@@ -121,7 +121,6 @@ export const Navbar = () => {
 											<VStack
 												spacing="6"
 												alignItems="left"
-												fontFamily="GothamBold"
 												fontSize="2xl"
 												color="black"
 											>
