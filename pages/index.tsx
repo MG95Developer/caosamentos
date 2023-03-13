@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 
 import { Box, Heading } from '@chakra-ui/react';
+import DogProfileCard from '@/src/components/Molecules/DogProfileCard';
 
 const inter = Inter({ subsets: ['latin'] });
 
